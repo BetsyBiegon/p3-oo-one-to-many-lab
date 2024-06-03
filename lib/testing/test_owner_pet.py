@@ -26,7 +26,7 @@ def test_has_pet_types():
 
 def test_checks_pet_type():
     """Test Pet class validates pet_type"""
-    with pytest.raises(Exception):
+    with pytest.raises(ValueError):
         Pet("Jim Jr.", "panda")
 
     Pet.all = []
@@ -66,7 +66,7 @@ def test_owner_adds_pets():
 def test_add_pet_checks_isinstance():
     """Test Owner class instance method add_pet() validates Pet type"""
     owner = Owner("Jim")
-    with pytest.raises(Exception):
+    with pytest.raises(TypeError):
         owner.add_pet("Lucky")
 
     Pet.all = []
